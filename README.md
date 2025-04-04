@@ -1,1 +1,1 @@
-# SSIP-iniventory-management-system
+# SSIP-inventory-management-system
