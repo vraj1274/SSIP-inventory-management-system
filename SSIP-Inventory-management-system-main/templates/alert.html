@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications - GSECL Coal Inventory Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .notification-container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .notification-header {
+            background-color: #007bff;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .notification-header h1 {
+            font-size: 22px;
+            font-weight: 500;
+        }
+        
+        .close-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 22px;
+            cursor: pointer;
+            padding: 5px;
+            transition: transform 0.2s ease;
+        }
+        
+        .close-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        .notification-content {
+            padding: 20px;
+        }
+        
+        .notification-item {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+        
+        .notification-item:last-child {
+            border-bottom: none;
+        }
+        
+        .notification-icon {
+            font-size: 18px;
+            min-width: 24px;
+            text-align: center;
+        }
+        
+        .notification-icon.critical {
+            color: #dc3545;
+        }
+        
+        .notification-icon.warning {
+            color: #ffc107;
+        }
+        
+        .notification-icon.info {
+            color: #17a2b8;
+        }
+        
+        .notification-text {
+            flex-grow: 1;
+        }
+        
+        .notification-text h3 {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        
+        .notification-text p {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .notification-time {
+            font-size: 12px;
+            color: #999;
+            margin-top: 5px;
+            display: block;
+        }
+        
+        .notification-footer {
+            background-color: #f8f9fa;
+            padding: 15px 20px;
+            text-align: center;
+            border-top: 1px solid #eee;
+        }
+        
+        .notification-footer a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        
+        .notification-footer a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 600px) {
+            .notification-container {
+                margin: 20px;
+                width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="notification-container">
+        <div class="notification-header">
+            <h1>Notifications</h1>
+            <button class="close-btn" id="closeButton">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="notification-content">
+            <div class="notification-item">
+                <div class="notification-icon critical">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <div class="notification-text">
+                    <h3>Critical Stock Alert - WTPS</h3>
+                    <p>Stock level at WTPS has fallen below 8 days threshold. Current stock: 7.9 days.</p>
+                    <span class="notification-time">March 9, 2025 • 09:15 AM</span>
+                </div>
+            </div>
+            
+            <div class="notification-item">
+                <div class="notification-icon critical">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <div class="notification-text">
+                    <h3>Coal Supply Interruption - BLTPS</h3>
+                    <p>Supplier MCL has reported conveyor system failure. Expected delay in next 3 shipments by 48 hours.</p>
+                    <span class="notification-time">March 9, 2025 • 11:30 AM</span>
+                </div>
+            </div>
+            
+            <div class="notification-item">
+                <div class="notification-icon warning">
+                    <i class="fas fa-exclamation-circle"></i>
+                </div>
+                <div class="notification-text">
+                    <h3>Weather Alert - Heavy Rain Expected</h3>
+                    <p>Meteorological department has issued heavy rainfall warning for March 13-14 in Surat region (UKAI TPS).</p>
+                    <span class="notification-time">March 10, 2025 • 09:10 AM</span>
+                </div>
+            </div>
+            
+            <div class="notification-item">
+                <div class="notification-icon info">
+                    <i class="fas fa-info-circle"></i>
+                </div>
+                <div class="notification-text">
+                    <h3>Contract Nearing Expiry - KLTPS</h3>
+                    <p>Contract #GS-2024-LT-451 with Supplier XYZ Coal Ltd. expires in 15 days.</p>
+                    <span class="notification-time">March 8, 2025 • 10:15 AM</span>
+                </div>
+            </div>
+            
+            <div class="notification-item">
+                <div class="notification-icon info">
+                    <i class="fas fa-info-circle"></i>
+                </div>
+                <div class="notification-text">
+                    <h3>System Maintenance Scheduled</h3>
+                    <p>Scheduled maintenance on March 20, 2025 from 22:00 to 02:00. System will be unavailable during this time.</p>
+                    <span class="notification-time">March 7, 2025 • 14:30 PM</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="notification-footer">
+            <a href="">View All Notifications</a>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const closeButton = document.getElementById('closeButton');
+            
+            closeButton.addEventListener('click', function() {
+                // Add a fade-out effect before redirecting
+                const notificationContainer = document.querySelector('.notification-container');
+                notificationContainer.style.transition = 'opacity 0.3s ease';
+                notificationContainer.style.opacity = '0';
+                
+                // Redirect to dashboard after a short delay to allow the fade animation
+                setTimeout(function() {
+                    window.location.href = "{{ ('dashboard') }}";
+                }, 300);
+            });
+        });
+    </script>
+</body>
+</html>
